@@ -35,6 +35,6 @@ android {
     }
 
     dependencies {
-        compile 'com.midtrans:uikit:1.26.0-SANDBOX'
+        compile 'com.midtrans:uikit:1.23.0-SANDBOX'
     }
 }
