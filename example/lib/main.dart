@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutrans/flutrans.dart';
+import 'package:flutter_midtrans_payment/flutter_midtrans_payment.dart';
 
 void main() => runApp(new MyApp());
 

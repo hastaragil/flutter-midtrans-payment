@@ -45,7 +45,7 @@ Make sure you are already prepare these variables.
 - `YOUR_URL_BASE`: Your backend URL base API to process payment
 
 ```dart
-import 'package:flutrans/flutrans.dart';
+import 'package:flutter_midtrans_payment/flutter_midtrans_payment.dart';
 ...
 final flutrans = Flutrans();
 

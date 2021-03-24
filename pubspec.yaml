@@ -1,10 +1,10 @@
-name: flutrans
+name: flutter_midtrans_payment
 description: Plugin for Midtrans payment gateway.
-version: 0.0.4
-author: Apin <apin.klas@gmail.com>
+version: 0.0.5
 homepage: https://github.com/apinprastya/flutrans
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: ">=2.0.0 <3.0.0"
+  flutter: ">=1.12.0 <2.0.0"
 
 dependencies:
   flutter:
@@ -16,8 +16,10 @@ dependencies:
 # The following section is specific to Flutter.
 flutter:
   plugin:
-    androidPackage: com.lekapin.flutrans.flutrans
-    pluginClass: FlutransPlugin
+    platforms:
+      android:
+        package: com.lekapin.flutrans.flutrans
+        pluginClass: FlutransPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
