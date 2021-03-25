@@ -44,36 +44,29 @@ Make sure you are already prepare these variables.
 - `YOUR_CLIENT_ID`: Midtrans CLIENT ID
 - `YOUR_URL_BASE`: Your backend URL base API to process payment
 
+Pay
 ```dart
 import 'package:flutter_midtrans_payment/flutter_midtrans_payment.dart';
 ...
-final flutrans = Flutrans();
 
-//Init the client ID you URL base
-flutrans.init("YOUR_CLIENT_ID", "YOUR_URL_BASE");
+var midtransPayParam = MidtransPayParam();
+midtransPayParam.clientKey = "=";
+midtransPayParam.merchantBaseUrl = "";
+midtransPayParam.totalPrice = 0;
+midtransPayParam.orderId = "";
+midtransPayParam.selectedPaymentMethod = MidtransPaymentMethod.SHOPEEPAY.index; //optional
+var result = await FlutterMidtransPayment.pay(midtransPayParam);
+```
 
-//Setup the callback when payment finished
-flutrans.setFinishCallback((finished) {
-    //finished is TransactionFinished
-});
+Pay with token
+```dart
+import 'package:flutter_midtrans_payment/flutter_midtrans_payment.dart';
+...
 
-//Make payment
-flutrans
-.makePayment(
-    MidtransTransaction(
-        7500,
-        MidtransCustomer(
-            "Apin", "Prastya", "apin.klas@gmail.com", "08123456789"),
-        [
-        MidtransItem(
-            "5c18ea1256f67560cb6a00cdde3c3c7a81026c29",
-            7500,
-            2,
-            "USB FlashDisk",
-        )
-        ],
-        skipCustomer: true,
-        customField1: "ANYCUSTOMFIELD"),
-)
-.catchError((err) => print("ERROR $err"));
+
+var midtransPayParam = MidtransPayWithTokenParam();
+midtransPayParam.clientKey = "";
+midtransPayParam.merchantBaseUrl = "";
+midtransPayParam.snapToken = "";
+var result = await FlutterMidtransPayment.payWithToken(midtransPayParam);
 ```

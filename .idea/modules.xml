@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/flutrans.iml" filepath="$PROJECT_DIR$/flutrans.iml" />
-      <module fileurl="file://$PROJECT_DIR$/flutrans_android.iml" filepath="$PROJECT_DIR$/flutrans_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flutter_midtrans_payment.iml" filepath="$PROJECT_DIR$/flutter_midtrans_payment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/flutter_midtrans_payment_android.iml" filepath="$PROJECT_DIR$/android/flutter_midtrans_payment_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/android/flutter_midtrans_payment_example_android.iml" filepath="$PROJECT_DIR$/example/android/flutter_midtrans_payment_example_android.iml" />
     </modules>
   </component>
 </project>
