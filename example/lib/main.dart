@@ -26,6 +26,7 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
+    log("mulai");
     String platformVersion;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
@@ -63,22 +64,28 @@ class _MyAppState extends State<MyApp> {
                     midtransPayParam.merchantBaseUrl = "";
                     midtransPayParam.totalPrice = 0;
                     midtransPayParam.orderId = "";
-                    midtransPayParam.selectedPaymentMethod = MidtransPaymentMethod.SHOPEEPAY.index;
-                    var result = await FlutterMidtransPayment.pay(midtransPayParam);
+                    midtransPayParam.selectedPaymentMethod =
+                        MidtransPaymentMethod.SHOPEEPAY.index;
+                    var result =
+                        await FlutterMidtransPayment.pay(midtransPayParam);
                     log(result);
-                  }
-              ),
+                  }),
               ElevatedButton(
-                  child: Text('Pay with token'),
+                  child: Text('Pay with token2'),
                   onPressed: () async {
+                    log("start");
                     var midtransPayParam = MidtransPayWithTokenParam();
-                    midtransPayParam.clientKey = "";
-                    midtransPayParam.merchantBaseUrl = "";
-                    midtransPayParam.snapToken = "";
-                    var result = await FlutterMidtransPayment.payWithToken(midtransPayParam);
+                    midtransPayParam.clientKey =
+                        "SB-Mid-client-lqSYrzuU0C8KghnG";
+                    midtransPayParam.merchantBaseUrl =
+                        "https://kesan-api.bangun-kreatif.com";
+                    midtransPayParam.snapToken =
+                        "3ddbfc73-c290-4bac-b46c-f549cffbfef7";
+                    var result = await FlutterMidtransPayment.payWithToken(
+                        midtransPayParam);
+                    log('result');
                     log(result);
-                  }
-              )
+                  })
             ],
           ),
         ),
