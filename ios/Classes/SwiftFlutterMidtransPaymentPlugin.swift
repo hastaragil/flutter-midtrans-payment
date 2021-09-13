@@ -22,11 +22,12 @@ public class SwiftFlutterMidtransPaymentPlugin: NSObject, FlutterPlugin, Midtran
            let clientKey = myArgs["client_key"] as? String,
            let merchantBaseUrl = myArgs["merchant_base_url"] as? String,
            let snapToken = myArgs["snap_token"] as? String {
-            result("Params received on iOS = \(clientKey), \(merchantBaseUrl), \(snap_token)")
+			
+            result("Params received on iOS = \(clientKey), \(merchantBaseUrl), \(snapToken)")
             initSdk(clientKey: clientKey, merchantBaseUrl: merchantBaseUrl)
             MidtransMerchantClient.init().requestTransacation(withCurrentToken: snapToken) { (response, error) in
             
-                payWithToken(token: snapToken)
+				self.payWithToken(token: snapToken)
             }
             
         } else {
@@ -57,7 +58,6 @@ public class SwiftFlutterMidtransPaymentPlugin: NSObject, FlutterPlugin, Midtran
     }
     
 //    #pragma mark - MidtransUIPaymentViewControllerDelegate
-
     public func paymentViewController(_ viewController: MidtransUIPaymentViewController!, paymentFailed error: Error!) {
         
     }
