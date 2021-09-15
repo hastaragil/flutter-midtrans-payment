@@ -57,7 +57,6 @@ public class SwiftFlutterMidtransPaymentPlugin: NSObject, FlutterPlugin, Midtran
     }
     
 //    #pragma mark - MidtransUIPaymentViewControllerDelegate
-
     public func paymentViewController(_ viewController: MidtransUIPaymentViewController!, paymentFailed error: Error!) {
         
     }
