@@ -80,11 +80,16 @@ class _MyAppState extends State<MyApp> {
                     midtransPayParam.merchantBaseUrl =
                         "https://kesan-api.bangun-kreatif.com";
                     midtransPayParam.snapToken =
-                        "3ddbfc73-c290-4bac-b46c-f549cffbfef7";
-                    var result = await FlutterMidtransPayment.payWithToken(
-                        midtransPayParam);
-                    log('result');
-                    log(result);
+                        "3143c741-3e24-4251-96e5-e5391cd19280";
+                    try {
+                      var result = await FlutterMidtransPayment.payWithToken(
+                          midtransPayParam);
+                      log('result');
+                      log(result.toString());
+                    } catch (err) {
+
+                      log(err.toString());
+                    }
                   })
             ],
           ),
