@@ -23,9 +23,10 @@ public class SwiftFlutterMidtransPaymentPlugin: NSObject, FlutterPlugin, Midtran
         if let myArgs = args as? [String: Any],
            let clientKey = myArgs["client_key"] as? String,
            let merchantBaseUrl = myArgs["merchant_base_url"] as? String,
-           let snapToken = myArgs["snap_token"] as? String {
+           let snapToken = myArgs["snap_token"] as? String,
+           let environment = myArgs["environment"] as? String {
 			self.result = result
-            initSdk(clientKey: clientKey, merchantBaseUrl: merchantBaseUrl)
+            initSdk(clientKey: clientKey, merchantBaseUrl: merchantBaseUrl, environment: environment)
             self.payWithToken(token: snapToken)
         } else {
           result(FlutterError(code: "-1", message: "iOS could not extract " +
@@ -50,12 +51,21 @@ public class SwiftFlutterMidtransPaymentPlugin: NSObject, FlutterPlugin, Midtran
         }
     }
     
-    private func initSdk(clientKey: String, merchantBaseUrl: String) {
-       MidtransConfig.shared().setClientKey(
-        clientKey,
-        environment: .sandbox,
-        merchantServerURL: merchantBaseUrl
-       );
+	private func initSdk(clientKey: String, merchantBaseUrl: String, environment: String) {
+		if(environment == "production") {
+			MidtransConfig.shared().setClientKey(
+				clientKey,
+				environment: .production,
+				merchantServerURL: merchantBaseUrl
+			);
+	
+		} else {
+			MidtransConfig.shared().setClientKey(
+				clientKey,
+				environment: .sandbox,
+				merchantServerURL: merchantBaseUrl
+			);
+		}
     }
     
 //    #pragma mark - MidtransUIPaymentViewControllerDelegate
