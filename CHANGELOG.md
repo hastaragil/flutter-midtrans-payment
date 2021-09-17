@@ -1,3 +1,6 @@
+## 0.2.0
+* add ios pay with token support
+
 ## 0.1.0
 * refactor into new structure
 
