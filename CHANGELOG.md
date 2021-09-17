@@ -1,3 +1,6 @@
+## 0.2.1
+* add ios production environment 
+
 ## 0.2.0
 * add ios pay with token support
 
