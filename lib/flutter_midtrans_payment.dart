@@ -15,6 +15,7 @@ class MidtransPayWithTokenParam {
   String merchantBaseUrl;
   String clientKey;
   String snapToken;
+  String environment;
 }
 
 enum MidtransPaymentMethod {
@@ -69,6 +70,7 @@ class FlutterMidtransPayment {
       'client_key': midtransPayWithTokenParam.clientKey,
       'merchant_base_url': midtransPayWithTokenParam.merchantBaseUrl,
       'snap_token': midtransPayWithTokenParam.snapToken,
+      'environment': midtransPayWithTokenParam.environment ?? "staging",
     });
     return result;
   }
